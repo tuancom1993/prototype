@@ -7,13 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
-	@GetMapping("/login")
+	@GetMapping("/loginpage")
 	public String showLogIn() {
+		System.out.println("Vao day 1");
 		return "login";
 	}
 	
-	@PostMapping("/login")
-	public String doLogin() { 
-		return "login";
-	}
 }

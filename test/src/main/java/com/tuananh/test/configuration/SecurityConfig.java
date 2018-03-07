@@ -17,13 +17,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.formLogin()
-        	.loginPage("/login").failureUrl("/login?error=true")
+        	.loginPage("/loginpage")
         	.usernameParameter("username")
         	.passwordParameter("password")
-        	.successForwardUrl("/");
+        	.failureUrl("/loginpage?error=true")
+        	.successForwardUrl("/home")
+        	.defaultSuccessUrl("/home");
         http.authorizeRequests()
-        	.antMatchers("/login").permitAll() 
+        	.antMatchers("/loginpage").permitAll() 
         	.anyRequest().authenticated();
+        http.addFilter(new CORSFilter());
     }
     
     @Override

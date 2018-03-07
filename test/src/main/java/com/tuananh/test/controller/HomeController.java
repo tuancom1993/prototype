@@ -11,7 +11,7 @@ public class HomeController {
     @Autowired
     UserService userService;
     
-    @GetMapping("/")
+    @GetMapping({"/", "/home"})
     public String showHome() {
         userService.init();
         return "home";
