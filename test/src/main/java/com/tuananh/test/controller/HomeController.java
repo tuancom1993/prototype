@@ -16,4 +16,14 @@ public class HomeController {
         userService.init();
         return "home";
     }
+    
+    @GetMapping("/admin")
+    public String showAdmin() {
+        return "admin";
+    }
+    
+    @GetMapping("/user")
+    public String showUser() {
+        return "user";
+    }
 }

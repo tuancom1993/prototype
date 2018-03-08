@@ -24,6 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         	.successForwardUrl("/home")
         	.defaultSuccessUrl("/home");
         http.authorizeRequests()
+            .antMatchers("/admin**").hasAnyRole("ADMIN")
+            .antMatchers("/user**").hasAnyRole("USER", "ADMIN")
         	.antMatchers("/loginpage").permitAll() 
         	.anyRequest().authenticated();
         http.addFilter(new CORSFilter());

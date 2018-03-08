@@ -10,8 +10,7 @@
     <section class="wrap-menu-article">
    
         <div class="wrap-article">
-            <p>Hello <span sec:authentication="principal.user.fullName"></span></p>
-            <p>You are <span sec:authentication="principal.user.role"></span></p>
+            <p>Hello User: <span sec:authentication="principal.user.fullName"></span></p>
         </div> <!-- /wrap-article -->
     </section>
     <a href="/#" th:href="@{/logout}">logout</a>
